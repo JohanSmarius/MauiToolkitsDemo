@@ -7,7 +7,12 @@
     Shell.FlyoutBehavior="Flyout">
 
     <FlyoutItem Title="Products" FlyoutDisplayOptions="AsMultipleItems">
-            <ShellContent Title="Recipes" Route="RecipesPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        <Tab Title="Products">
+            <ShellContent Title="Products" Route="RecipesPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Shopping cart">
+            <ShellContent Title="Shopping cart" Route="ShoppingCart" ContentTemplate="{DataTemplate local:ShoppingCart}" />
+        </Tab>
     </FlyoutItem>
     
     <FlyoutItem Title="Received order" FlyoutDisplayOptions="AsMultipleItems">

@@ -5,12 +5,16 @@ namespace MauiToolkitsDemo.Services;
 
 public class OrderService
 {
-    private readonly List<Product> _orderItems = [];
+    private readonly List<OrderLine> _orderItems = [];
+    
+    public IEnumerable<OrderLine> OrderItems => _orderItems;
     
     public void AddToOrder(Product product)
     {
-        // Logic to add the product to the order
-        // This could involve updating a database, sending a request to a server, etc.
-        _orderItems.Add(product);
+        _orderItems.Add(new OrderLine() 
+        { 
+            Product = product,
+            Quantity = 1
+        });;
     }
 }

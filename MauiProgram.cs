@@ -27,6 +27,7 @@ public static class MauiProgram
         builder.Services.AddTransient<SignOrderViewModel>();
         builder.Services.AddTransient<ProductsViewModel>();
         builder.Services.AddTransient<ProductViewModel>();
+        builder.Services.AddTransient<ShoppingCartViewModel>();
 
         return builder.Build();
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MauiToolkitsDemo.ViewModels"
+             xmlns:model="clr-namespace:MauiToolkitsDemo.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewModels:ShoppingCartViewModel"
+             x:Class="MauiToolkitsDemo.ShoppingCart">
+            
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <CollectionView x:Name="OrderLine" ItemsSource="{Binding OrderLines}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:ObservableOrderline">
+                    <Border>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding ProductName}" FontSize="24" />
+                            
+                            <Label Text="Quantity" />
+                            <Entry Keyboard="Numeric" Text="{Binding Quantity}">
+                                <Entry.Behaviors>
+                                    <toolkit:NumericValidationBehavior 
+                                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                        ValidStyle="{StaticResource ValidEntryStyle}"
+                                        Flags="ValidateOnValueChanged"
+                                        MinimumValue="1"
+                                        MaximumValue="100"
+                                        MinimumDecimalPlaces="0"
+                                        MaximumDecimalPlaces="0" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="No products available" HorizontalOptions="Center" VerticalOptions="Center" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
