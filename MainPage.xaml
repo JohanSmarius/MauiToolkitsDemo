@@ -1,41 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MauiToolkitsDemo.ViewModels"
+             xmlns:model="clr-namespace:MauiToolkitsDemo.Models"
+             x:DataType="viewModels:ProductsViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiToolkitsDemo.MainPage">
 			 
     <ScrollView>
-        <VerticalStackLayout 
-            Spacing="25" 
-            Padding="30,0" 
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-                
-            <Label 
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-            
-            <Label 
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button 
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
+	    <RefreshView Command="{Binding LoadProductsCommand}" >
+		    <CollectionView x:Name="Products" ItemsSource="{Binding Products}">
+			    <CollectionView.ItemTemplate>
+				    <DataTemplate x:DataType="model:Product">
+					    <Border>
+						    <Border.Behaviors>
+							    <toolkit:TouchBehavior
+								    DefaultAnimationDuration="250"
+								    DefaultAnimationEasing="{x:Static Easing.CubicInOut}"
+								    PressedOpacity="0.2"
+								    PressedScale="1.2" />
+						    </Border.Behaviors>
+						    <VerticalStackLayout>
+							    <VerticalStackLayout.GestureRecognizers>
+								    <TapGestureRecognizer 
+									    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ProductsViewModel}}, 
+											Path=LoadProductDetailCommand}"
+											CommandParameter="{Binding .}" />
+							    </VerticalStackLayout.GestureRecognizers>
+							    <Label Text="{Binding Name}" FontSize="24" />
+							    <Label Text="{Binding Description}" FontSize="18" />
+							    <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="18" />
+						    </VerticalStackLayout>
+					    </Border>
+				    </DataTemplate>
+			    </CollectionView.ItemTemplate>
+			    <CollectionView.EmptyView>
+				    <Label Text="No products available" HorizontalOptions="Center" VerticalOptions="Center" />
+				</CollectionView.EmptyView>
+		    </CollectionView>
+	    </RefreshView>
+	    
     </ScrollView>
  
 </ContentPage>

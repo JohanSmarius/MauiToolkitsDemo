@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MauiToolkitsDemo.ViewModels;
+using Microsoft.Maui.Controls;
 
 namespace MauiToolkitsDemo;
 
-public partial class SIgnOrder : ContentPage
+public partial class SignOrder : ContentPage
 {
-    public SIgnOrder()
+    public SignOrder()
     {
-        InitializeComponent();
+        InitializeComponent();      
     }
 }

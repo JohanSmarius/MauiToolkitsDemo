@@ -2,8 +2,19 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiToolkitsDemo.SIgnOrder">
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:MauiToolkitsDemo.ViewModels"
+             x:Class="MauiToolkitsDemo.SignOrder"
+             Title="Sign for order received">
+    
     <ContentPage.Content>
-        
+        <StackLayout Orientation="Vertical">
+            <toolkit:DrawingView
+                LineColor="Red"
+                LineWidth="5"
+                ShouldClearOnFinish="false" 
+                />
+            
+        </StackLayout>        
     </ContentPage.Content>
 </ContentPage>
