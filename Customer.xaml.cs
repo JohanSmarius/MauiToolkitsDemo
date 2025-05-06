@@ -8,15 +8,12 @@ using Microsoft.Maui.Controls;
 
 namespace MauiToolkitsDemo;
 
-
-public partial class ShoppingCart : ContentPage
+public partial class Customer
 {
-    public ShoppingCart(ShoppingCartViewModel viewModel)
+    public Customer(CustomerViewModel viewModel)
     {
         InitializeComponent();
         
         BindingContext = viewModel;
-        
-        viewModel.ActionForCallBack = async () => await DisplayAlert("Tapped on button", "The user has requested interaction", "OK");
     }
 }

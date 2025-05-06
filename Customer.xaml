@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toolkit:Popup 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:MauiToolkitsDemo.ViewModels"
+    x:Class="MauiToolkitsDemo.Customer"
+    x:DataType="viewModels:CustomerViewModel">
+
+    <toolkit:Popup.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </toolkit:Popup.Resources>
+    
+    <Frame Padding="20" BackgroundColor="White" CornerRadius="10" BorderColor="Chocolate">
+        <VerticalStackLayout>
+            <Label Text="What is your first name?" />
+            <Entry Text="{Binding FirstName}" />
+
+            <Label Text="What is your last name?" />
+            <Entry Text="{Binding LastName}" />
+
+            <Label Text="What is your e-mail?" />
+            <Entry Text="{Binding Email}">
+                <Entry.Behaviors>
+                    <toolkit:EmailValidationBehavior InvalidStyle="{StaticResource InvalidEntryStyle}" ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged" >
+                    </toolkit:EmailValidationBehavior>
+                </Entry.Behaviors>
+            </Entry>
+
+            
+            <Label Text="{Binding FullName}" Margin="0, 10"></Label>
+            
+            <Button Text="Save" Command="{Binding SaveCommand}" Margin="10"/>
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>

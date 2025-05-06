@@ -18,34 +18,38 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
+        <VerticalStackLayout>
         <CollectionView x:Name="OrderLine" ItemsSource="{Binding OrderLines}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="viewModels:ObservableOrderline">
-                    <Border>
-                        <VerticalStackLayout>
-                            <Label Text="{Binding ProductName}" FontSize="24" />
-                            
-                            <Label Text="Quantity" />
-                            <Entry Keyboard="Numeric" Text="{Binding Quantity}">
-                                <Entry.Behaviors>
-                                    <toolkit:NumericValidationBehavior 
-                                        InvalidStyle="{StaticResource InvalidEntryStyle}"
-                                        ValidStyle="{StaticResource ValidEntryStyle}"
-                                        Flags="ValidateOnValueChanged"
-                                        MinimumValue="1"
-                                        MaximumValue="100"
-                                        MinimumDecimalPlaces="0"
-                                        MaximumDecimalPlaces="0" />
-                                </Entry.Behaviors>
-                            </Entry>
-                            
-                        </VerticalStackLayout>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            <CollectionView.EmptyView>
-                <Label Text="No products available" HorizontalOptions="Center" VerticalOptions="Center" />
-            </CollectionView.EmptyView>
-        </CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewModels:ObservableOrderline">
+                        <Border>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding ProductName}" FontSize="24" />
+                                
+                                <Label Text="Quantity" />
+                                <Entry Keyboard="Numeric" Text="{Binding Quantity}">
+                                    <Entry.Behaviors>
+                                        <toolkit:NumericValidationBehavior 
+                                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                            ValidStyle="{StaticResource ValidEntryStyle}"
+                                            Flags="ValidateOnValueChanged"
+                                            MinimumValue="1"
+                                            MaximumValue="100"
+                                            MinimumDecimalPlaces="0"
+                                            MaximumDecimalPlaces="0" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Border>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="No products available" HorizontalOptions="Center" VerticalOptions="Center" />
+                </CollectionView.EmptyView>
+            </CollectionView>
+            <Button Command="{Binding CustomerDetailsCommand}" Text="Enter customer details" />
+            <Button Command="{Binding PlaceOrderCommand}" Text="Place order" Margin="0, 10"></Button>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

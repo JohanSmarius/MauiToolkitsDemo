@@ -28,6 +28,8 @@ public static class MauiProgram
         builder.Services.AddTransient<ProductsViewModel>();
         builder.Services.AddTransient<ProductViewModel>();
         builder.Services.AddTransient<ShoppingCartViewModel>();
+        
+        builder.Services.AddTransientPopup<Customer, CustomerViewModel>();
 
         return builder.Build();
     }
