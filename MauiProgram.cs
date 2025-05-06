@@ -15,6 +15,8 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkitCamera()
+            .UseMauiCommunityToolkitMediaElement()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -28,6 +30,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ProductsViewModel>();
         builder.Services.AddTransient<ProductViewModel>();
         builder.Services.AddTransient<ShoppingCartViewModel>();
+        builder.Services.AddTransient<CameraViewModel>();
         
         builder.Services.AddTransientPopup<Customer, CustomerViewModel>();
 

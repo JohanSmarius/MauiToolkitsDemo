@@ -16,7 +16,15 @@
     </FlyoutItem>
     
     <FlyoutItem Title="Received order" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Sign order" Route="SignOrder" ContentTemplate="{DataTemplate local:SignOrder}" />
+        <Tab Title="Received order">
+            <ShellContent Title="Sign order" Route="SignOrder" ContentTemplate="{DataTemplate local:SignOrder}" />
+        </Tab>
+        <Tab Title="Camera">
+            <ShellContent Title="Camera" Route="Camera" ContentTemplate="{DataTemplate local:Camera}" />
+        </Tab>
+        <Tab Title="Video">
+            <ShellContent Title="Video" Route="Video" ContentTemplate="{DataTemplate local:ProductVideo}" />
+        </Tab>
     </FlyoutItem>
 
 </Shell>

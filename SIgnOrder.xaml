@@ -4,17 +4,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodel="clr-namespace:MauiToolkitsDemo.ViewModels"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"   
+             x:DataType="viewmodel:SignOrderViewModel"
              x:Class="MauiToolkitsDemo.SignOrder"
              Title="Sign for order received">
     
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <toolkit:DrawingView
-                LineColor="Red"
-                LineWidth="5"
-                ShouldClearOnFinish="false" 
-                />
+
+                <toolkit:DrawingView
+                    Lines="{Binding DrawingLines}"
+                    LineColor="Red"
+                    LineWidth="5"
+                    IsMultiLineModeEnabled="True"
+                    ShouldClearOnFinish="false" 
+                    />
             
-        </StackLayout>        
+
+        
+                
     </ContentPage.Content>
 </ContentPage>
