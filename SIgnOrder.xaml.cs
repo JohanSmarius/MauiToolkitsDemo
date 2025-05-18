@@ -10,8 +10,14 @@ namespace MauiToolkitsDemo;
 
 public partial class SignOrder : ContentPage
 {
-    public SignOrder()
+    public SignOrder(SignOrderViewModel viewModel)
     {
-        InitializeComponent();      
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+
+    private void Button_OnClicked(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

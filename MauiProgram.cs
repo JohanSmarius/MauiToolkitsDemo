@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.ApplicationModel;
+using CommunityToolkit.Maui.Storage;
 using MauiToolkitsDemo.Services;
 using MauiToolkitsDemo.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,11 +31,12 @@ public static class MauiProgram
         builder.Services.AddTransient<SignOrderViewModel>();
         builder.Services.AddTransient<ProductsViewModel>();
         builder.Services.AddTransient<ProductViewModel>();
-        builder.Services.AddTransient<ShoppingCartViewModel>();
+        builder.Services.AddScoped<ShoppingCartViewModel>();
         builder.Services.AddTransient<CameraViewModel>();
         
         builder.Services.AddTransientPopup<Customer, CustomerViewModel>();
-
+        builder.Services.AddSingleton<IBadge>(Badge.Default);
+        builder.Services.AddSingleton<IFileSaver>(FileSaver.Default);
         return builder.Build();
     }
 }

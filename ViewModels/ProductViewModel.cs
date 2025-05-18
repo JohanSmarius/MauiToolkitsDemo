@@ -55,16 +55,8 @@ public partial class ProductViewModel : ObservableObject
     private async Task PlaceOrderCommand()
     {
         _orderService.AddToOrder(_selectedProduct);
+
         
-        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
-        string text = "Added to order";
-        ToastDuration duration = ToastDuration.Short;
-        double fontSize = 14;
-
-        var toast = Toast.Make(text, duration, fontSize);
-
-        await toast.Show(cancellationTokenSource.Token);
         
         await Shell.Current.GoToAsync("..");
     }

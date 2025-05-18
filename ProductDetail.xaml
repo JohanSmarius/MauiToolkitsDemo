@@ -9,34 +9,14 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Image Source="bookreading.jpg">
-                <Image.Behaviors>
-                    <toolkit:TouchBehavior
-                        DefaultAnimationDuration="250"
-                        DefaultAnimationEasing="{x:Static Easing.CubicInOut}"
-                        PressedOpacity="0.2"
-                        PressedScale="1.2" />
-                </Image.Behaviors>
+                
             </Image>
             
             <Label Text="{Binding Name}" FontSize="24" />
             <Label Text="{Binding Description}" FontSize="18" />
             <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="18" />
-            
-            <toolkit:RatingView
-                EmptyShapeColor="White"
-                FillColor= "Green"
-                FillOption ="Shape"
-                IsReadOnly="False"
-                ShapePadding="3,7,7,3"
-                ShapeDiameter="37"
-                MaximumRating="5"
-                Rating="{Binding CustomerRating}"
-                Shape="Star"
-                ShapeBorderColor="Red"
-                ShapeBorderThickness="1"
-                Spacing="3" 
-                />
-            
+
+           
             <Button Command="{Binding PlaceOrderCommandCommand}" Height="40"  Text="Order this book"></Button>
         </StackLayout>
     </ContentPage.Content>

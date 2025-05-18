@@ -11,16 +11,20 @@
     
     <ContentPage.Content>
 
+        <VerticalStackLayout>
                 <toolkit:DrawingView
                     Lines="{Binding DrawingLines}"
                     LineColor="Red"
                     LineWidth="5"
                     IsMultiLineModeEnabled="True"
-                    ShouldClearOnFinish="false" 
+                    ShouldClearOnFinish="false"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="FillAndExpand" 
+                    HeightRequest="500"
                     />
-            
-
-        
+                
+                <Button Text="Save" Command="{Binding ReceiveConfirmedCommand}"  Margin="50"></Button>
+        </VerticalStackLayout>
                 
     </ContentPage.Content>
 </ContentPage>

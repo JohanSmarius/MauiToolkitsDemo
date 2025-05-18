@@ -31,14 +31,9 @@ public partial class CustomerViewModel : ObservableValidator
         _popupService = popupService;
     }
     
-    [RelayCommand(CanExecute = nameof(CanSave))]
+    [RelayCommand]
     private async Task Save()
     {
-        
-        
         await _popupService.ClosePopupAsync(FullName);
-
     }
-
-    bool CanSave() => string.IsNullOrEmpty(FullName) is false;
 }
