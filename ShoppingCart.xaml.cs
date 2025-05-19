@@ -17,6 +17,6 @@ public partial class ShoppingCart : ContentPage
         
         BindingContext = viewModel;
         
-        viewModel.ActionForCallBack = async () => await DisplayAlert("Tapped on button", "The user has requested interaction", "OK");
+        viewModel.ActionForCallBack = () => DisplayAlert("Tapped on button", "The user has requested interaction", "OK");
     }
 }
