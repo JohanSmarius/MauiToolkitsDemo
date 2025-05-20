@@ -13,13 +13,6 @@
 			    <CollectionView.ItemTemplate>
 				    <DataTemplate x:DataType="model:Product">
 					    <Border>
-						    <Border.Behaviors>
-							    <toolkit:TouchBehavior
-								    DefaultAnimationDuration="250"
-								    DefaultAnimationEasing="{x:Static Easing.CubicInOut}"
-								    PressedOpacity="0.2"
-								    PressedScale="1.2" />
-						    </Border.Behaviors>
 						    <VerticalStackLayout>
 							    <VerticalStackLayout.GestureRecognizers>
 								    <TapGestureRecognizer 
