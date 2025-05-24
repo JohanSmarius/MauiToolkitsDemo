@@ -6,7 +6,7 @@
              x:Class="MauiToolkitsDemo.ProductVideo">
     <ContentPage.Content>
         <toolkit:MediaElement
-            Source="embed://Video.mp4" ShouldShowPlaybackControls="True"  ShouldAutoPlay="True"/> 
+            Source="embed://WorkingCamera.mp4" ShouldShowPlaybackControls="True"  ShouldAutoPlay="True"/> 
             
     </ContentPage.Content>
 </ContentPage>
